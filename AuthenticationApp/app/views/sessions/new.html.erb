@@ -1,3 +1,8 @@
+<% if signed_in? %>
+	You signed in!
+  <%= link_to "Log out", logout_path, method: "delete" %>
+ <% end %>
+
 <%= form_for(:session, url: login_path) do |f|%>
 
 	<%= f.label :email %>
@@ -9,5 +14,3 @@
 	<%= f.submit "Sign in" %>
 
 <% end %>
-
-
