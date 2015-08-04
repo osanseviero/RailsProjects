@@ -1,1 +1,13 @@
-a
+<%= form_for(:session, url: login_path) do |f|%>
+
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+
+	<%= f.submit "Sign in" %>
+
+<% end %>
+
+
