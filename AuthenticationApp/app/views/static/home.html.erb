@@ -1,5 +1,7 @@
 <% if signed_in? %>
 	You signed in!
   <%= link_to "Log out", logout_path, method: "delete" %>
+ <% else %>
+ 	You need to sign in
+	<%= link_to "Log in", login_path%>
  <% end %>
-<%= link_to "Log in", login_path%>

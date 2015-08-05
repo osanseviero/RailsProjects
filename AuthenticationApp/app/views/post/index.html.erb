@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+	Author: <%= @post.user.username %>
+	Title:  <%= post.title %>
+	Body:	<%= post.body %>
+
+<%end%>
