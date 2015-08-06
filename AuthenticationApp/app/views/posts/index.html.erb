@@ -1,6 +1,16 @@
 <% @posts.each do |post| %>
-	Author: <%= post.user.username %>
-	Title:  <%= post.title %>
-	Body:	<%= post.body %>
-
+	<% if signed_in? %>
+		Author: <%= post.user.username %>
+	<% end %>
+	<p>
+	<strong>Title:</strong>  <%= post.title %>
+	<strong>Body:</strong>	<%= post.body %>
+	</p>
 <%end%>
+ <%= link_to "Log out", logout_path, method: "delete" %>
+
+<p>
+<% if !signed_in? %>
+	 <%= link_to "Log in to see the authors", login_path%>
+<% end %>
+</p>
