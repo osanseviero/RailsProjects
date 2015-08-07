@@ -1,0 +1,3 @@
+== README
+
+This is a website (just backend) similar to Eventbrite that allows any user to create events, join events and manage the people that joined each event.
