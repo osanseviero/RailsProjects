@@ -1,0 +1,8 @@
+<h1>Users</h1>
+<% if signed_in? %>
+		Welcome <%= current_user.name %>
+	<%end%>
+
+<% @users.each do |user| %>
+	<p><%= link_to user.name, user%></p>
+<% end %>
