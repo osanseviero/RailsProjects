@@ -17,7 +17,8 @@ class EventsController < ApplicationController
 	end
 
 	def index
-		@events = Event.all
+		@events_upcoming = Event.upcoming
+		@events_past = Event.past
 	end
 
 	private

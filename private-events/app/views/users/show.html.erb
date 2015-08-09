@@ -1,12 +1,22 @@
 <h1><%= @user.name %></h1>
 <h2><%= @user.email %></h2>
 
+
 <% if @user.events.any? %>
 	<p>List of events made by <%=@user.name%></p>
 	<% @user.events.each do |event| %>
+	<div>
 		<strong>Title: </strong> <%=event.name %> 
 		<strong>Description: </strong> <%=event.location %> 
 		<strong>Location: </strong> <%=event.description %> 
 		<strong>Date: </strong> <%=event.date %> 
+	</div>
 	<% end %>
 <% end %>
+
+<p>Events you attended</p>
+<ul>
+	<% @user.attended_events.each do |event| %>
+		<li><%= link_to event.name, event%></li>
+	<% end %>
+</ul>

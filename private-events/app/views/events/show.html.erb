@@ -4,6 +4,28 @@
 <p><%=@event.date%></p>
 <p><%=@event.creator.name%></p>
 
+<ul>
+	<% @event.attendees.each do |attendee| %>
+		<li><%= link_to attendee.name, attendee%></li>
+	<% end %>
+</ul>
+
 <% if current_user.name == @event.creator.name %>
 	This is your event, great event!
 <%end %>
+
+<div>
+	<% if signed_in? %>
+		<% if current_user.attending?(@event)%>
+			You are attending this event
+		<% else %>
+			Hey <%= current_user.name %>, you should join this event.
+			<%= form_for(current_user.invites.build(attended_event_id: @event.id)) do |f| %>
+			  <div><%= f.hidden_field :attended_event_id %></div>
+			  <%= f.submit "Attend"%>
+			<% end %>
+		<% end %>
+	<% else %>
+		<%=link_to "Join us to go to the event", login_path %>
+	<% end %>
+</div>
